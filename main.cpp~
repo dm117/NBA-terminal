@@ -63,6 +63,8 @@ int main()
     //newDir = system("mkdir NBAschedule"); //linux only command
     //changeDir = chdir("/home/dan/NBAschedule/"); //linux only command
 
+    system("wget https://raw.githubusercontent.com/dm117/NBA-terminal/master/schedule.csv");
+
     schedule.open("schedule.csv");
 
     if (schedule.is_open())
