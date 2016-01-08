@@ -23,6 +23,7 @@
 #include <ctime>
 #include <sstream> //for stringstream: convert int to string
 #include <vector>
+#include <iomanip> //output manipulators
 
 using namespace std;
 
@@ -36,6 +37,7 @@ int main()
     ifstream schedule;
     string a, b, c, userString; //to ignore first three lines
     vector<string> weekDay, times, box, team1, team1Score, team2, team2Score, OT, notes;
+    vector<int> placeHolder;
     string pcWeek, pcMonth, pcDay, pcYear; //system dates
     string pcDate; //final string for system date
     int tempMonth, tempYear, tempDay, tempWeek, i = 0;
@@ -62,6 +64,7 @@ int main()
 
     //newDir = system("mkdir NBAschedule"); //linux only command
     //changeDir = chdir("/home/dan/NBAschedule/"); //linux only command
+    int z = 0;
 
     schedule.open("schedule.csv");
 
@@ -82,27 +85,116 @@ int main()
             }
             else
             {
-                cout << weekDay[i] << endl;
-                cout << times[i] << endl;
-                cout << team1[i] << " " << team1Score[i] << endl;
-                cout << team2[i] << " " << team2Score[i] << endl;
-                cout << OT[i] << endl;
-                cout << notes[i] << endl;
-                cout << "\n" << endl;
+                placeHolder.push_back(i); //holds the location of today's games
 
                 dataInput(schedule, weekDay, times, box, team1, team1Score, team2, team2Score, OT, notes, userString); //calling the input function
-
             }
-            i++;
+
+            i++; //put this int the else statement and delete the output then print out formatted date after the loop
 
         }while(!schedule.eof());
 
         schedule.close();
+
+        int one = 0;
+        int two = 0;
+        int three = 0;
+        int four = 0;
+        int five = 0;
+        int six = 0;
+        int seven = 0;
+        int y = 0;
+        int i = 0;
+
+        z = 2;
+
+        for(i; i < placeHolder.size(); i++)
+        {
+            cout << setw(30) << left << weekDay[placeHolder[i]] << setw(5) << " ";//22
+
+            if (i == placeHolder.size() - 1)
+                {
+                    y = 1;
+                }
+
+            if(y == 1)
+            {
+
+                cout << endl;
+                for(int x = 0; x < z; x++) //need to find a way to continue
+                {
+                    cout << setw(30) << left << times[placeHolder[one]] << setw(5) << " ";//29
+                    one++;
+                }
+                cout << endl;
+                for(int x = 0; x < z; x++)
+                {
+                    cout << setw(30) << left << team1[placeHolder[two]] << setw(5) << " ";//22
+                    two++;
+                }
+
+                for(int x = 0; x < z; x++)
+                {
+                    cout << team1Score[placeHolder[three]];
+                    three++;
+                }
+                cout << endl;
+                for(int x = 0; x < z; x++)
+                {
+                    cout << setw(30) << left << team2[placeHolder[four]] << setw(5) << " ";//23
+                    four++;
+                }
+
+                for(int x = 0; x < z; x++)
+                {
+                    cout << team2Score[placeHolder[five]];
+                    five++;
+                }
+                cout << endl;
+                for(int x = 0; x < z; x++)
+                {
+                    cout << OT[placeHolder[six]];
+                    six++;
+                }
+                cout << endl;
+                for(int x = 0; x < z; x++)
+                {
+                    cout << notes[placeHolder[seven]];
+                    seven++;
+                }
+
+                y = 0;
+
+                cout << "\n\n" << endl;
+            }
+            else
+            {
+                y++;
+            }
+        }
+
+       /* i = 0;
+
+        do
+        {
+                //going to write for loops to format output into columns and rows. ex: for(){ cout << vectorString << setw() }
+                cout << weekDay[placeHolder[i]] << endl;
+                cout << times[placeHolder[i]] << endl;
+                cout << team1[placeHolder[i]] << " " << team1Score[placeHolder[i]] << endl;
+                cout << team2[placeHolder[i]] << " " << team2Score[placeHolder[i]] << endl;
+                cout << OT[placeHolder[i]] << endl;
+                cout << notes[placeHolder[i]] << endl;
+
+                i++;
+
+        }while(i < placeHolder.size()); */
+
     }
     else
     {
         cout << "Couldn't find the file, downloading now...please re-run the program" << endl;
         system("wget https://raw.githubusercontent.com/dm117/NBA-terminal/master/schedule.csv");
+        cout << "\n\nDownloaded file, re-run the program..." << endl;
     }
 
     cout << "\nEnd of program" << endl;
