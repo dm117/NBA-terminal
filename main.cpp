@@ -24,6 +24,7 @@
 #include <sstream> //for stringstream: convert int to string
 #include <vector>
 #include <iomanip> //output manipulators
+#include "termcolor.hpp" //library for colored output
 
 using namespace std;
 
@@ -115,6 +116,11 @@ int main()
             if (i == placeHolder.size() - 1)
                 {
                     y = 1;
+
+                        if(placeHolder.size()%2)
+                        {
+                            z = 1;
+                        }
                 }
 
             if(y == 1)

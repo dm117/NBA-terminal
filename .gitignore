@@ -1,2 +1,4 @@
 #ignores back up files from text editors
 *~
+*.hpp
+*.hpp.gch
