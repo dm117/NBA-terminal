@@ -1,17 +1,5 @@
-/* AFTER INPUTING THE YEAR USE GETLINE FOR THE REST OF INFO, ALLOWS FOR MULTIPLE STRING VALUES WHILE SIMUTANIOUSLY IGNORING COMMAS
-
-    goal(12/25/2015-12/27/2015)
-
-    //format the output
-    //get weekDay, month, day and year using cin()
-    //and then compare them to pcWeek, pcMonth, pcDay, pcYear
-    //thinking about leaving weekDay, month, day and year under one vairable using getline() and then adding pc string variables AND THEN comparing
-    //example: getline(schedule, dates) which would containg something like Thu Oct 27 2015 and then adding pcWeek + pcMonth + pcDay + pcYear and comparing
-    //dont really have to get the year since months dont repeat, just keep the file updated per season
-
-    //function: converting system int dates to strings i.e switch case, data input from file
-
-    //problems to fix: need to find a way to update the file via the internet that works on windows too
+/*
+    //problems to fix: need to find a way to download the file via the internet that works on windows too
 
 */
 
@@ -24,7 +12,7 @@
 #include <sstream> //for stringstream: convert int to string
 #include <vector>
 #include <iomanip> //output manipulators
-#include "termcolor.hpp" //library for colored output
+#include "termcolor.hpp" //header only library for colored output
 
 using namespace std;
 
@@ -32,6 +20,7 @@ void weekConvert(int &tempWeek_, string &pcWeek_); //converts tempWeek
 void monthConvert(int &tempMonth_, string &pcMonth_); //converts tempMonth
 void dataInput(ifstream &schedule_, vector<string> &weekDay_, vector<string> &time_, vector<string> &box_, vector<string> &team1_, vector<string> &team1Score_, vector<string> &team2_,
 vector<string> &team2Score_, vector<string> &OT_, vector<string> &notes_, string userString); //gets data from file
+void outFunction(vector<string> &team_, vector<int> &placeHolder_, int &numb);
 int main()
 {
     int changeDir, newDir;
@@ -65,7 +54,6 @@ int main()
 
     //newDir = system("mkdir NBAschedule"); //linux only command
     //changeDir = chdir("/home/dan/NBAschedule/"); //linux only command
-    int z = 0;
 
     schedule.open("schedule.csv");
 
@@ -106,12 +94,12 @@ int main()
         int seven = 0;
         int y = 0;
         int i = 0;
-
-        z = 2;
+        int z = 2;
 
         for(i; i < placeHolder.size(); i++)
         {
-            cout << setw(30) << left << weekDay[placeHolder[i]] << setw(5) << " ";//22
+            cout << termcolor::cyan << setw(30) << left << weekDay[placeHolder[i]] << setw(5) << " ";//22
+	    cout << termcolor::reset;
 
             if (i == placeHolder.size() - 1)
                 {
@@ -129,16 +117,16 @@ int main()
                 cout << endl;
                 for(int x = 0; x < z; x++) //need to find a way to continue
                 {
-                    cout << setw(30) << left << times[placeHolder[one]] << setw(5) << " ";//29
+                    cout << termcolor::cyan << setw(30) << left << times[placeHolder[one]] << setw(5) << " ";//29
+		    cout << termcolor::reset;
                     one++;
                 }
                 cout << endl;
-                for(int x = 0; x < z; x++)
+		for(int x = 0; x < z; x++)
                 {
-                    cout << setw(30) << left << team1[placeHolder[two]] << setw(5) << " ";//22
-                    two++;
+			outFunction(team1,placeHolder,two);
+			two++;              				
                 }
-
                 for(int x = 0; x < z; x++)
                 {
                     cout << team1Score[placeHolder[three]];
@@ -147,7 +135,8 @@ int main()
                 cout << endl;
                 for(int x = 0; x < z; x++)
                 {
-                    cout << setw(30) << left << team2[placeHolder[four]] << setw(5) << " ";//23
+                    //cout << setw(30) << left << team2[placeHolder[four]] << setw(5) << " ";//23
+		    outFunction(team2,placeHolder,four);
                     four++;
                 }
 
@@ -203,7 +192,7 @@ int main()
         cout << "\n\nDownloaded file, re-run the program..." << endl;
     }
 
-    cout << "\nEnd of program" << endl;
+    cout << "\nAll times are in EST" << endl;
 
     return 0;
 }
@@ -316,6 +305,35 @@ vector<string> &team2Score_, vector<string> &OT_, vector<string> &notes_, string
     getline(schedule_, userString_);
     notes_.push_back(userString_);
 
+}
+void outFunction(vector<string> &team1_, vector<int> &placeHolder_, int &two_)
+{
+	if (team1_[placeHolder_[two_]] == "Miami Heat" || team1_[placeHolder_[two_]] == "Toronto Raptors" || team1_[placeHolder_[two_]] == "Chicago Bulls" || team1_[placeHolder_[two_]] == "Atlanta Hawks" || team1_[placeHolder_[two_]] == "Portland Trail Blazers" || team1_[placeHolder_[two_]] == "Los Angeles Clippers" || team1_[placeHolder_[two_]] == "Houston Rockets")
+	{
+		cout <<  termcolor::red << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22
+	}
+	else if (team1_[placeHolder_[two_]] == "New York Knicks" || team1_[placeHolder_[two_]] == "Detroit Pistons" || team1_[placeHolder_[two_]] == "Orlando Magic" || team1_[placeHolder_[two_]] == "Washington Wizards" || team1_[placeHolder_[two_]] == "Oklahoma City Thunder" || team1_[placeHolder_[two_]] == "Utah Jazz" || team1_[placeHolder_[two_]] == "Dallas Mavericks" || team1_[placeHolder_[two_]] == "Memphis Grizzlies")
+	{
+		cout << termcolor::blue << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22
+	}
+	else if (team1_[placeHolder_[two_]] == "Boston Celtics" || team1_[placeHolder_[two_]] == "Milwaukee Bucks" || team1_[placeHolder_[two_]] == "Minnesota Timberwolves")
+	{
+		cout << termcolor::green << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22
+	}
+	else if (team1_[placeHolder_[two_]] == "Cleveland Cavaliers" || team1_[placeHolder_[two_]] == "Indiana Pacers" || team1_[placeHolder_[two_]] == "Denver Nuggets" || team1_[placeHolder_[two_]] == "Golden State Warriors" || team1_[placeHolder_[two_]] == "Los Angeles Lakers")
+	{
+		cout << termcolor::yellow << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22		
+	}
+	else if (team1_[placeHolder_[two_]] == "Charlotte Hornets" || team1_[placeHolder_[two_]] == "Sacramento Kings")
+	{
+		cout << termcolor::magenta << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22		
+	}
+	else if (team1_[placeHolder_[two_]] == "Brooklyn Nets" || team1_[placeHolder_[two_]] == "Philadelphia 76ers" || team1_[placeHolder_[two_]] == "New Orleans Pelicans" || team1_[placeHolder_[two_]] == "San Antonio Spurs")
+	{
+		cout << termcolor::white << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22		
+	}
+		
+		cout << termcolor::reset;
 }
 
 /*--------------------------------------------THIS WILL BE USE LATER TO CHECK IF THE DIRECTORY ALREADY EXISTS------------
