@@ -9,12 +9,13 @@ What it does now:
 
 - Must download the CSV file manually if you want to use it on Windows.
 
-- Output now displays the schedule in rows and columns instead of vertically!
+- Colored output (unobtrusive colored text that matches the teams' color).
+
+- Output now displays the schedule in rows and columns instead of vertically.
 
 What needs to be worked on: 
 
-- Colored output (unobtrusive colored text that matches the teams' color). COMING REALLY SOON!
-
 - Full windows support.
+- Code clean up.
 
 Feel free to fork and/or contribute!
