@@ -2,6 +2,8 @@
 
 ![alt text](https://raw.githubusercontent.com/dm117/NBA-terminal/master/screenshot.png)
 
+***Note: The image in the backfround is simply a wallpaper not part of the program***
+
 An open-source, simplistic terminal application that displays the NBA schedule for the day. Inspired by tty-clock: https://github.com/xorg62/tty-clock. Work in progress...
 
 The goal: To make a minimalistic and beautiful terminal application that displays the NBA schedule for the current date. No user input is necessary as the program fetches the date from your computer and displays the schedule accordingly.
