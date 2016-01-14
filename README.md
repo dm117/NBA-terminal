@@ -2,17 +2,21 @@
 
 ![alt text](https://raw.githubusercontent.com/dm117/NBA-terminal/master/screenshot.png)
 
-***Note: The image in the background is simply a wallpaper not part of the program***
-
-An open-source, simplistic terminal application that displays the NBA schedule for the day. Inspired by tty-clock: https://github.com/xorg62/tty-clock. Work in progress...
+An open-source, simplistic terminal application that displays the NBA schedule for the day. Inspired by tty-clock: https://github.com/xorg62/tty-clock. Written in C/C++.
 
 The goal: To make a minimalistic and beautiful terminal application that displays the NBA schedule for the current date. No user input is necessary as the program fetches the date from your computer and displays the schedule accordingly.
 
+*** Must have the package "wget" installed or download the CSV from the repo ***
+
+How to (OSX and Linux):
+
+- Download the "NBA" executable above (I recommend putting it in your home directory)
+- Run it (usually using "./NBA").
+- If it's your first time running the program (ever) it will download the CSV so you'll need to run it again.
+
 What it does now:
 
-- No set up is required on Linux. Just download and run the executable "NBA".
-
-- Must download the CSV file manually if you want to use it on OSX.
+- Displays the schedule for the day automatically
 
 - Colored output (unobtrusive colored text that matches the teams' color).
 
@@ -20,7 +24,6 @@ What it does now:
 
 What needs to be worked on: 
 
-- Full OSX support.
 - Code clean up.
 
 Feel free to fork and/or contribute!

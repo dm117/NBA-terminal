@@ -189,7 +189,8 @@ int main()
     {
         cout << "Couldn't find the file, downloading now...please re-run the program" << endl;
         system("wget https://raw.githubusercontent.com/dm117/NBA-terminal/master/schedule.csv");
-        cout << "\n\nDownloaded file, re-run the program..." << endl;
+        cout << termcolor::on_red << "\n\nDownloaded file, re-run the program..." << endl;
+	cout << termcolor::reset << endl;
     }
 
     cout << "\nAll times are in EST" << endl;
