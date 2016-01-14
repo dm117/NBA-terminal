@@ -6,7 +6,7 @@ An open-source, simplistic terminal application that displays the NBA schedule f
 
 The goal: To make a minimalistic and beautiful terminal application that displays the NBA schedule for the current date. No user input is necessary as the program fetches the date from your computer and displays the schedule accordingly.
 
-*** Must have the package "wget" installed or download the CSV from the repo ***
+***Must have the package "wget" installed or download the CSV from the repo***
 
 How to (OSX and Linux):
 
