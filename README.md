@@ -12,7 +12,7 @@ What it does now:
 
 - No set up is required on Linux. Just download and run the executable "NBA".
 
-- Must download the CSV file manually if you want to use it on Windows.
+- Must download the CSV file manually if you want to use it on OSX.
 
 - Colored output (unobtrusive colored text that matches the teams' color).
 
@@ -20,7 +20,7 @@ What it does now:
 
 What needs to be worked on: 
 
-- Full windows support.
+- Full OSX support.
 - Code clean up.
 
 Feel free to fork and/or contribute!
