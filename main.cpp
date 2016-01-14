@@ -1,5 +1,15 @@
 /*
-    //problems to fix: need to find a way to download the file via the internet that works on windows too
+
+-----------------termcolor library used for color output-----------------
+Copyright (c) 2013 by Igor Kalnitsky
+license BSD, see LICENSE for details
+-------------------------------------------------------------------------
+
+NBA-terminal is a simple open-source, simplistic terminal application that displays the NBA schedule for the day.
+Copyright (c) 2013, Daniel Maria All rights reserved.
+License BSD, see LICENSE for details
+
+problems to fix: need to find a way to download the file via the internet that works on windows too
 
 */
 
@@ -167,22 +177,8 @@ int main()
                 y++;
             }
         }
-
-       /* i = 0;
-
-        do
-        {
-                //going to write for loops to format output into columns and rows. ex: for(){ cout << vectorString << setw() }
-                cout << weekDay[placeHolder[i]] << endl;
-                cout << times[placeHolder[i]] << endl;
-                cout << team1[placeHolder[i]] << " " << team1Score[placeHolder[i]] << endl;
-                cout << team2[placeHolder[i]] << " " << team2Score[placeHolder[i]] << endl;
-                cout << OT[placeHolder[i]] << endl;
-                cout << notes[placeHolder[i]] << endl;
-
-                i++;
-
-        }while(i < placeHolder.size()); */
+        
+        cout << "\nAll times are in EST" << endl;
 
     }
     else
@@ -192,8 +188,6 @@ int main()
         cout << termcolor::on_red << "\n\nDownloaded file, re-run the program..." << endl;
 	cout << termcolor::reset << endl;
     }
-
-    cout << "\nAll times are in EST" << endl;
 
     return 0;
 }
