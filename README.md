@@ -10,7 +10,7 @@ The goal: To make a minimalistic and beautiful terminal application that display
 
 How to (OSX and Linux):
 
-- Download the folder under "release" (you can get rid of everything but the "NBA" executable)
+- Download the folder under "release" (you can get rid of everything but the "NBA" file)
 - Run NBA (usually using "./NBA").
 - If it's your first time running the program (ever) it will download the CSV so you'll need to run it again.
 
