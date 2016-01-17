@@ -303,7 +303,7 @@ vector<string> &team2Score_, vector<string> &OT_, vector<string> &notes_, string
 }
 void outFunction(vector<string> &team1_, vector<int> &placeHolder_, int &two_)
 {
-	if (team1_[placeHolder_[two_]] == "Miami Heat" || team1_[placeHolder_[two_]] == "Toronto Raptors" || team1_[placeHolder_[two_]] == "Chicago Bulls" || team1_[placeHolder_[two_]] == "Atlanta Hawks" || team1_[placeHolder_[two_]] == "Portland Trail Blazers" || team1_[placeHolder_[two_]] == "Los Angeles Clippers" || team1_[placeHolder_[two_]] == "Houston Rockets")
+	if (team1_[placeHolder_[two_]] == "Miami Heat" || team1_[placeHolder_[two_]] == "Toronto Raptors" || team1_[placeHolder_[two_]] == "Chicago Bulls" || team1_[placeHolder_[two_]] == "Atlanta Hawks" || team1_[placeHolder_[two_]] == "Portland Trail Blazers" || team1_[placeHolder_[two_]] == "Los Angeles Clippers" || team1_[placeHolder_[two_]] == "Houston Rockets" || team1_[placeHolder_[two_]] == "Phoenix Suns")
 	{
 		cout <<  termcolor::red << setw(30) << left << team1_[placeHolder_[two_]] << setw(5) << " ";//22
 	}
