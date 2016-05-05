@@ -13,6 +13,7 @@ How to (OSX and Linux):
 - Download the folder under "release" (you can get rid of everything but the "NBA" file)
 - Run NBA (usually using "./NBA").
 - If it's your first time running the program (ever) it will download the CSV so you'll need to run it again.
+- I recommend adding an alias so you can run the program from anywhere in the terminal: http://www.hostingadvice.com/how-to/set-command-aliases-linuxubuntudebian/
 
 What it does now:
 
